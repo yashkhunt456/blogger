@@ -1,0 +1,10 @@
+<%= search_form_for @q, url: articles_path, method: :get do |f| %>
+    <%= f.label :title_cont, "Title : " %>
+    <%= f.search_field :title_cont %>
+
+    <%= f.label :user_username_eq, "Author : " %>
+    <%= f.search_field :user_username_eq %>
+    <%= f.submit "Search" %>
+    <%= sort_link(@q, :created_at, "Order ") %>
+    
+<% end %>
