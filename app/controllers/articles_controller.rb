@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    authorize @article
+
   end
 
   def new
@@ -18,7 +18,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.create(article_params)
-    authorize @article
 
     if @article.save
       redirect_to @article, notice: "Article created successfully"
@@ -32,8 +31,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    authorize @article
-
     if @article.update(article_params)
       redirect_to @article, notice: "Article is updated"
     else
@@ -56,6 +53,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :document, :video, images: [])
   end
 end

@@ -5,3 +5,6 @@ import "turbo-rails"
 import "channels"
 import Rails from "@rails/ujs"
 Rails.start()
+//= require activestorage
+import * as ActiveStorage from "@rails/activestorage"
+ActiveStorage.start()

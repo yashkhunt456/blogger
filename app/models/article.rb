@@ -2,6 +2,15 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
+  has_many_attached :images do |attachable|
+    attachable.variant :thumb, resize_to_limit: [nil, 200]
+  end
+
+  has_one_attached :document
+  has_one_attached :video do |attachable|
+    attachable.variant :thumb, resize_to_limit: [500, nil]
+  end
+
   validates :title, :content, presence: true
   validates :content, length: { in: 10..1000 }
 
