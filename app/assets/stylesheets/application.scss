@@ -8,27 +8,17 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
- table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+
+//  table, th, td {
+//     border: 1px solid black;
+//     border-collapse: collapse;
+//   }
   
- th, td {
-    padding: 8px;
-    text-align: left;
-  }
-
-  .article-images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .article-image {
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-
+//  th, td {
+//     padding: 8px;
+//     text-align: left;
+//   }

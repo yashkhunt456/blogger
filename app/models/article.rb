@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many_attached :images do |attachable|
-    attachable.variant :thumb, resize_to_limit: [nil, 200]
+    attachable.variant :thumb, resize_to_fill: [300, 200]
   end
 
   has_one_attached :document

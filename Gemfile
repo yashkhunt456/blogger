@@ -80,6 +80,10 @@ gem 'ruby-vips'
 gem 'pry'
 
 
+gem 'bootstrap', '~> 5.3.3'
+gem 'jquery-rails'
+gem 'sassc-rails', '~> 2.1' #Required for SCSS processing (or another Sass engine) 
+
 
 group :development do
   gem "letter_opener"

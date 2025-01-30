@@ -1,7 +1,9 @@
 <h1>Users List</h1>
 <%= link_to "Export as csv", users_path(format: 'csv') %>
-<table>
-  <thead>
+<br>
+<div class="table-responsive"></div>
+  <table class="table table-bordered border-dark">
+  <thead class="table-dark">
     <tr>
       <th>Username</th>
       <th>Email</th>
@@ -22,12 +24,13 @@
           <% end %>
         </td>
         <td>
-          <%= link_to 'Show', user_path(user) %>
+          <%= link_to 'Show', user_path(user), class: "btn btn-sm btn-info btn-outline-light text-dark" %>
         </td>
         <td>
-          <%= button_to 'Delete', users_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= button_to 'Delete', users_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
         </td>
       </tr>
     <% end %>
   </tbody>
-</table>
+  </table>
+</div>

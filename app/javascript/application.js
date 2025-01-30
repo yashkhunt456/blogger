@@ -8,3 +8,7 @@ Rails.start()
 //= require activestorage
 import * as ActiveStorage from "@rails/activestorage"
 ActiveStorage.start()
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets

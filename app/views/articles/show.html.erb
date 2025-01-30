@@ -3,38 +3,39 @@
 <h2><%= @article.title %> </h2><p>by: <strong><%= @article.user.username %></strong></p>
 
 <p><%= @article.content %></p>
-
-<% if @article.images.attached? %>
-  <div class="article-images">
-    <% @article.images.each do |image| %>
-      <%= link_to url_for(image) do %>
-        <% if image.representable? %>
-          <%= image_tag image.representation(resize_to_fill: [540, 312]) %>
-          <%# image_tag image.representation(resize_to_fill: [540, 312], crop: [50, 25, 440, 258], resize_to_fill: [540, 312],  saver: { quality: 1 }) %>
-        <% else %>  
-          <%= image_tag image.variant(:thumb) %>
+<div class="container">
+  <% if @article.images.attached? %>
+    <div class="article-images">
+      <% @article.images.each do |image| %>
+        <%= link_to url_for(image) do %>
+          <% if image.representable? %>
+            <%= image_tag image.representation(resize_to_fill: [540, 312]) %>
+            <%# image_tag image.representation(resize_to_fill: [540, 312], crop: [50, 25, 440, 258], saver: { quality: 1 }) %>
+          <% else %>  
+            <%= image_tag image.variant(:thumb) %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </div>
-<% end %><br>
-<% if @article.document.attached? && @article.document.previewable? %>
-  <div>
-      <%= image_tag @article.document.preview(resize_to_limit: [200, nil]) %>
-      <h2>Download link : <%= link_to "Document", url_for(@article.document) %></h2>  
-  </div>
-<% end %>
-<% if @article.video.attached? %>
-  <div>
-    <%= image_tag @article.video.preview(:thumb) %>
-    <%= video_tag @article.video, controls: true, width: 500 %>
-  </div>
-<% end %>
+    </div>
+  <% end %><br>
+  <% if @article.document.attached? && @article.document.previewable? %>
+    <div>
+        <%= image_tag @article.document.preview(resize_to_limit: [200, nil]) %>
+        <h2>Download link : <%= link_to "Document", url_for(@article.document) %></h2>  
+    </div>
+  <% end %>
+  <% if @article.video.attached? %>
+    <div>
+      <%= image_tag @article.video.preview(:thumb) %>
+      <%= video_tag @article.video, controls: true, width: 500 %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to "Back", root_path %>&nbsp&nbsp
 <% if current_user == @article.user %>
-    <%= link_to "Edit", edit_article_path(@article) %>
-    <%= button_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %><br>
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-sm btn-link" %>
+    <%= button_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %><br>
     <%= link_to "Add New Article", new_article_path %>
 <% end %>
 
