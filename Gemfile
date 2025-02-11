@@ -75,7 +75,7 @@ gem "pundit", "~> 2.4"
 gem 'rolify'
 
 #for active storage variants
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.14'
 gem 'ruby-vips'
 gem 'pry'
 
